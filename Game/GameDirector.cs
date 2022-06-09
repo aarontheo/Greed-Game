@@ -1,6 +1,6 @@
 using System;
 
-namespace Greed_Game.Classes
+namespace Greed_Game.Game
 {
     public class GameDirector
     {
