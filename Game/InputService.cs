@@ -2,7 +2,7 @@ using System;
 
 namespace Greed_Game.Game
 {
-    public class GameDirector
+    public static class InputService
     {
         
     }

@@ -1,5 +1,3 @@
-using System;
-
 namespace Greed_Game.Game.Casting
 {
     /// <summary>
@@ -11,11 +9,20 @@ namespace Greed_Game.Game.Casting
         public float y { get; set; }
         public Vect(float x,float y)
         {
-            
+            this.x = x;
+            this.y = y;
         }
         public static Vect operator +(Vect a,Vect b)
         {
             return new Vect(a.x + b.x, a.y + b.y);
+        }
+        public static Vect operator *(Vect a,float b)
+        {
+            return new Vect(a.x * b, a.y * b);
+        }
+        public Vect Neg()
+        {
+            return this * -1;
         }
     }
 }
