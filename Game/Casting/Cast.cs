@@ -63,7 +63,29 @@ namespace Greed_Game.Game.Casting
             }
             return results;
         }
-
+        public Actor GetFirstActor(string group)
+        {
+            if (actors.ContainsKey(group) & actors.Count > 0)
+            {
+                return actors[group][0];
+            } else {
+                return null;
+            }
+        }
+        public void Update(int maxX,int maxY)
+        {
+            foreach (Actor a in GetActors())
+            {
+                a.Update(maxX,maxY);
+            }
+        }
+        public void Draw()
+        {
+            foreach (Actor a in GetActors())
+            {
+                a.Draw();
+            }
+        }
 
     }
 }
