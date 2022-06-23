@@ -24,5 +24,9 @@ namespace Greed_Game.Game.Casting
         {
             return this * -1;
         }
+        public Point toPoint()
+        {
+            return new Point(((int)x), ((int)y));
+        }
     }
 }
