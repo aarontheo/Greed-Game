@@ -1,17 +1,17 @@
 ﻿using Raylib_cs;
+using Greed_Game.Game;
+using Greed_Game.Game.Casting;
 
-Raylib.InitWindow(800, 480, "Greed");
+int width = 500;
+int height = 500;
+Color bgColor = new Color(100,100,150,255);
+int FPS = 60;
+string title = "Greed";
 
-while (!Raylib.WindowShouldClose())
-{
-    Raylib.BeginDrawing();
-    Raylib.ClearBackground(Color.WHITE);
-    Raylib.DrawText("Hello, world!", 0, 0, 40, Color.BLACK);
-    if(Raylib.IsMouseButtonDown(MouseButton.MOUSE_LEFT_BUTTON))
-    {
-        Raylib.DrawCircleV(Raylib.GetMousePosition(),10,Color.BLUE);
-    }
-    Raylib.EndDrawing();
-}
+VideoService videoService = new VideoService(width,height,bgColor,title,FPS);
+Director director = new Director(videoService);
 
-Raylib.CloseWindow();
+Cast cast = new Cast();
+cast.Add("players", new Player());
+
+director.StartGame(cast);

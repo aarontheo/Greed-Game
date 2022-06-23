@@ -27,6 +27,10 @@ namespace Greed_Game.Game.Casting
         {
             return new Point(a.x * b, a.y * b);
         }
+        public static Vect operator *(Point a, float b)
+        {
+            return new Vect(a.x * b, a.y * b);
+        }
         public Vect toVect()
         {
             return new Vect(x, y);

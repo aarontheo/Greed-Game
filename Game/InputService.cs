@@ -6,7 +6,7 @@ namespace Greed_Game.Game
 {
     public class InputService
     {
-        public Point GetDirection()
+        public Vect GetDirection()
         {
             int dx = 0;
             int dy = 0;
@@ -26,7 +26,7 @@ namespace Greed_Game.Game
             {
                 dy += 1;
             }
-            return new Point(dx,dy);
+            return new Vect(dx,dy);
         }
     }
 }

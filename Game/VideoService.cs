@@ -8,14 +8,16 @@ namespace Greed_Game.Game
         private int framerate = 0;
         public int width { get; }
         public int height { get; }
+        private string title;
         public Color BGColor { get; set; }
-        public VideoService(int width,int height,Color BGColor,int framerate = 60)
+        public VideoService(int width,int height,Color BGColor,string title,int framerate = 60)
         {
             this.width = width;
             this.height = height;
             this.BGColor = BGColor;
+            this.title = title;
         }
-        public void OpenWindow(int width, int height,string title)
+        public void OpenWindow()
         {
             Raylib.InitWindow(width, height, title);
         }

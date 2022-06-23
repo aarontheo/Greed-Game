@@ -7,7 +7,7 @@ namespace Greed_Game.Game.Casting
 {
     public class Actor
     {
-        public Point pos;
+        public Vect pos;
         public int fontSize { get; set; }
         public Vect vel = new Vect(0,0);
         public string text { get; set; }
@@ -15,14 +15,14 @@ namespace Greed_Game.Game.Casting
 
         public Actor(int x = 0, int y = 0,string text = "@",int fontSize = 5)
         {
-            pos = new Point(x, y);
+            pos = new Vect(x, y);
             this.text = text;
             this.fontSize = fontSize;
-            this.color = new Color(50,50,50);
+            this.color = new Color(50,50,50,255);
         }
         public void Draw()
         {
-            Raylib.DrawText(text,((int)pos.x),((int)pos.y),fontSize,color.toRaylibColor());
+            Raylib.DrawText(text,((int)pos.x),((int)pos.y),fontSize,color);
         }
         public virtual void Update(int maxX, int maxY)
         {

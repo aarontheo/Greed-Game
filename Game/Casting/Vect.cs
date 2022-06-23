@@ -22,11 +22,15 @@ namespace Greed_Game.Game.Casting
         }
         public static Vect operator *(Vect a,float b)
         {
-            return new Vect(a.x * b, a.y * b);
+            return new Vect(a.x * b, a.y * b); //For some reason this doesnt work
         }
         public Vect Neg()
         {
             return this * -1;
+        }
+        public float Mag()
+        {
+            return Math.Abs(x) + Math.Abs(y);
         }
         public Vect Max()
         {

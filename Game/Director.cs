@@ -1,4 +1,5 @@
 using System;
+using Raylib_cs;
 using Greed_Game.Game.Casting;
 
 namespace Greed_Game.Game
@@ -7,7 +8,6 @@ namespace Greed_Game.Game
     {
         private VideoService videoService;
         //private InputService inputService;
-
         public Director(VideoService videoService)
         {
             this.videoService = videoService;
@@ -15,9 +15,17 @@ namespace Greed_Game.Game
         }
         public void StartGame(Cast cast)
         {
-            //GetInputs(cast);
-            Update(cast);
-            Draw(cast);
+            videoService.OpenWindow();
+            while (!Raylib.WindowShouldClose())
+            {
+                //GetInputs(cast);
+                Update(cast);
+                videoService.ClearBuffer();
+                Draw(cast);
+                videoService.FlushBuffer();
+            }
+            videoService.CloseWindow();
+            Console.WriteLine("Program Ended!");
         }
         // public void GetInputs(Cast cast)
         // {
@@ -31,7 +39,7 @@ namespace Greed_Game.Game
         }
         public void Draw(Cast cast)
         {
-            
+            cast.Draw();
         }
     }
 }
