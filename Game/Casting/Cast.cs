@@ -86,6 +86,5 @@ namespace Greed_Game.Game.Casting
                 a.Draw();
             }
         }
-
     }
 }

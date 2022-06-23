@@ -6,8 +6,8 @@ namespace Greed_Game.Game
     public class VideoService
     {
         private int framerate = 0;
-        private int width;
-        public int height;
+        public int width { get; }
+        public int height { get; }
         public Color BGColor { get; set; }
         public VideoService(int width,int height,Color BGColor,int framerate = 60)
         {
