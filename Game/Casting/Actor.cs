@@ -12,6 +12,7 @@ namespace Greed_Game.Game.Casting
         public Vect vel = new Vect(0,0);
         public string text { get; set; }
         public Color color;
+
         public Actor(int x = 0, int y = 0,string text = "@",int fontSize = 5)
         {
             pos = new Point(x, y);
@@ -26,6 +27,14 @@ namespace Greed_Game.Game.Casting
         public virtual void Update(int maxX, int maxY)
         {
             pos = pos + vel;
+        }
+        public Rectangle getBound()
+        {
+            return new Rectangle(pos.x, pos.y, fontSize, fontSize);
+        }
+        public bool isColliding(Actor b)
+        {
+            return Raylib.CheckCollisionRecs(this.getBound(), b.getBound());
         }
     }
 }
