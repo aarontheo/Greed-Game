@@ -13,7 +13,7 @@ namespace Greed_Game.Game.Casting
         public string text { get; set; }
         public Color color;
 
-        public Actor(int x = 0, int y = 0,string text = "@",int fontSize = 5)
+        public Actor(int x = 0, int y = 0,string text = "@",int fontSize = 50)
         {
             pos = new Vect(x, y);
             this.text = text;

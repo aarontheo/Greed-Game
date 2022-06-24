@@ -13,5 +13,6 @@ Director director = new Director(videoService);
 
 Cast cast = new Cast();
 cast.Add("players", new Player());
+cast.Add("banners", new Banner());
 
 director.StartGame(cast);
