@@ -7,7 +7,11 @@ namespace Greed_Game.Game
     public class Director
     {
         private VideoService videoService;
+        private Random rng = new Random(1337);
         //private InputService inputService;
+        private int score = 0;
+        private int spawnCounter = 0;
+        private int spawnInterval = 1500;
         public Director(VideoService videoService)
         {
             this.videoService = videoService;
@@ -35,7 +39,34 @@ namespace Greed_Game.Game
         // }
         public void Update(Cast cast)
         {
+            //randomly spawn gems/rocks
+            if (spawnCounter >= spawnInterval)
+            {
+                spawnCounter = 0;
+                int value = rng.Next(3, 4);
+                int which = (int) Math.Round(rng.NextSingle());
+                int x = rng.Next(videoService.width);
+                cast.Add("collectibles", new Collectible(x-(x%30), 0, value));
+                value = rng.Next(-5, -2);
+                x = rng.Next(videoService.width);
+                cast.Add("collectibles", new Collectible(x-(x%30), 0, value));
+            }
+            var player = cast.GetFirstActor("players");
+            foreach (Collectible thing in cast.GetActors("collectibles"))
+            {
+                if (player.isColliding(thing))
+                {
+                    score += thing.pointValue;
+                    cast.Remove("collectibles", thing);
+                }
+                if (thing.pos.y > videoService.height)
+                {
+                    cast.Remove("collectibles", thing);
+                }
+            }
+            cast.GetFirstActor("banners").text = $"Points: {score}";
             cast.Update(videoService.width,videoService.height);
+            spawnCounter++;
         }
         public void Draw(Cast cast)
         {
