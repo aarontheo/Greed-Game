@@ -6,6 +6,12 @@ namespace Greed_Game.Game.Casting
 {
     public class Player : Actor
     {
+        public Player(int x, int y,string text,int fontSize=30):base(x,y,text)
+        {
+            // this.pos = new Vect(x,y);
+            // this.text = text;
+            // this.fontSize = fontSize;
+        }
         InputService inputS = new InputService();
         float speedLimit = 0.5f;
         float decel = 0.96f; //between 0 and 1, higher values are more floaty
@@ -39,7 +45,7 @@ namespace Greed_Game.Game.Casting
                     pos.y = 0 - fontSize;
                 }
             }
-            
+
         }
     }
 }

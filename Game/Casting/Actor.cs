@@ -12,8 +12,7 @@ namespace Greed_Game.Game.Casting
         public Vect vel = new Vect(0,0);
         public string text { get; set; }
         public Color color;
-
-        public Actor(int x = 0, int y = 0,string text = "@",int fontSize = 50)
+        public Actor(int x = 0, int y = 0,string text = "@",int fontSize = 30)
         {
             pos = new Vect(x, y);
             this.text = text;
@@ -22,6 +21,12 @@ namespace Greed_Game.Game.Casting
         }
         public void Draw()
         {
+            //Raylib.DrawRectangleLinesEx(getBound(),2,Color.GOLD);
+            Raylib.DrawText(text,((int)pos.x),((int)pos.y),fontSize,color);
+        }
+        public void Draw(bool debug)
+        {
+            Raylib.DrawRectangleLinesEx(getBound(),2,Color.GOLD);
             Raylib.DrawText(text,((int)pos.x),((int)pos.y),fontSize,color);
         }
         public virtual void Update(int maxX, int maxY)
@@ -30,7 +35,9 @@ namespace Greed_Game.Game.Casting
         }
         public Rectangle getBound()
         {
-            return new Rectangle(pos.x, pos.y, fontSize, fontSize);
+            var size = Raylib.MeasureTextEx(Raylib.GetFontDefault(), text, fontSize, 0);
+            //return new Rectangle(pos.x, pos.y, fontSize, fontSize);
+            return new Rectangle(pos.x, pos.y+size.Y/3, size.X, size.Y/2);
         }
         public bool isColliding(Actor b)
         {

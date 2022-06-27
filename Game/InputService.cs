@@ -18,6 +18,7 @@ namespace Greed_Game.Game
             {
                 dx += 1;
             }
+            //re-enable this to allow up and down motion
             if(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
             {
                 dy -= 1;
