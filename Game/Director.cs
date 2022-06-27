@@ -12,6 +12,8 @@ namespace Greed_Game.Game
         private int score = 0;
         private int spawnCounter = 0;
         private int spawnInterval = 1500;
+        private int maxVal = 4;
+        private int minVal = 2;
         public Director(VideoService videoService)
         {
             this.videoService = videoService;
@@ -43,11 +45,10 @@ namespace Greed_Game.Game
             if (spawnCounter >= spawnInterval)
             {
                 spawnCounter = 0;
-                int value = rng.Next(3, 4);
-                int which = (int) Math.Round(rng.NextSingle());
+                int value = rng.Next(minVal, maxVal);
                 int x = rng.Next(videoService.width);
                 cast.Add("collectibles", new Collectible(x-(x%30), 0, value));
-                value = rng.Next(-5, -2);
+                value = rng.Next(-maxVal, -minVal);
                 x = rng.Next(videoService.width);
                 cast.Add("collectibles", new Collectible(x-(x%30), 0, value));
             }
