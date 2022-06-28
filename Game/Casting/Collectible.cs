@@ -24,7 +24,7 @@ namespace Greed_Game.Game.Casting
                 this.color = new Raylib_cs.Color(r-dark, r-dark, r-dark, (byte)255);
             }
             // this.vel.y = Math.Abs((float)pointValue / 20);
-            this.vel.y = 0.05f * Math.Abs((float)pointValue / 5);
+            this.vel.y = 0.05f * Math.Abs((float)pointValue/4);
         }
     }
 }

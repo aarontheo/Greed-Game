@@ -17,7 +17,7 @@ namespace Greed_Game.Game.Casting
             pos = new Vect(x, y);
             this.text = text;
             this.fontSize = fontSize;
-            this.color = new Color(50,50,50,255);
+            this.color = new Color(200,200,200,255);
         }
         public void Draw()
         {

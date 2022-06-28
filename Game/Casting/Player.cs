@@ -8,9 +8,7 @@ namespace Greed_Game.Game.Casting
     {
         public Player(int x, int y,string text,int fontSize=30):base(x,y,text)
         {
-            // this.pos = new Vect(x,y);
-            // this.text = text;
-            // this.fontSize = fontSize;
+
         }
         InputService inputS = new InputService();
         float speedLimit = 0.5f;
